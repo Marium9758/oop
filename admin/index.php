@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <input type="submit" class="btn btn-primary btn-block" name="submit">Sign In</input>
+            <input type="submit" class="btn btn-primary btn-block" name="submit" value="Sign In">
           </div>
           <!-- /.col -->
         </div>
