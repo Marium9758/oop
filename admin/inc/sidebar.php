@@ -3,7 +3,7 @@
     <a href="index3.html" class="brand-link">
       <img src="../assets/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Dashboard blog</span>
     </a>
 
     <!-- Sidebar -->
@@ -42,6 +42,29 @@
                 <a href="add_user.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add user</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Post
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="posts.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All post</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add_post.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add post</p>
                 </a>
               </li>
             </ul>

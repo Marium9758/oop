@@ -4,12 +4,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Add user</h1>
+            <h1 class="m-0 text-dark">Edit user</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add user</li>
+              <li class="breadcrumb-item active">Edit user</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -19,16 +19,12 @@
     <?php 
         $err_name = '';
         $err_email = '';
-        $err_password = '';
-        $err_repassword = '';
         $name ='';
         $email = '';
         $message = '';
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
-            $repassword = $_POST['repassword'];
             $error = 0;
 
             if (empty($name)) {
@@ -41,30 +37,18 @@
                 $error++;
             }
 
-            if (empty($password)) {
-                $err_password = 'You need a password to login in future';
-                $error++;
-            }
-
-            if (empty($repassword)) {
-                $err_repassword = 'Your re-password should not empty';
-                $error++;
-            }
-
-            if ($password!=$repassword) {
-                $err_repassword = 'Your password not matched';
-                $error++;
-            }
-
             if ($error==0) {
-                $result = $user->register_user($_POST);
+                $result = $user->update_user($_GET['id']);
                 if ($result) {
-                    $message = 'Data saved succesfully';
+                    $message = 'Data updated succesfully';
                 }
             }
-
-
         }
+
+        if (isset($_GET['id'])) {
+        	$row=$user->get_user_details($_GET['id']);
+        }
+
      ?>
     <!-- Main content -->
     <section class="content">
@@ -81,7 +65,7 @@
             <div class="col-md-6">
             <form action="" method="post">
                 <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Full name" name='name' value="<?= $name; ?>">
+                <input type="text" class="form-control" placeholder="Full name" name='name' value="<?= $row['name']; ?>">
                 
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -92,7 +76,7 @@
                 <span class="text-danger"><?= $err_name; ?></span>
                 </div>
                 <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email" name='email' value="<?= $email; ?>">
+                <input type="email" class="form-control" placeholder="Email" name='email' value="<?= $row['email']; ?>">
                 
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -101,30 +85,13 @@
                 </div>
                 <span class="text-danger"><?= $err_email; ?></span>
                 </div>
-                <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password" name='password' value="">
                 
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                    </div>
-                </div>
-                <span class="text-danger"><?= $err_password ?></span>
-                </div>
-                <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Retype password" name='repassword'>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                    </div>
-                </div>
-                <span class="text-danger"><?= $err_repassword ?></span>
-                </div>
+                
                 <div class="row">
                 
                 <!-- /.col -->
                 <div class="col-4">
-                    <input type="submit" class="btn btn-primary btn-block" name="submit" value="Register">
+                    <input type="submit" class="btn btn-primary btn-block" name="submit" value="Update">
                 </div>
                 <!-- /.col -->
                 </div>
