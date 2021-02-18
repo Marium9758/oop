@@ -54,7 +54,11 @@
   <?php include 'inc/sidebar.php' ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <?php include 'pages/home.php'; ?>
+  <?php if(isset($pages)) : ?>
+    <?php include 'pages/'.$pages.'.php'; ?>
+  <?php else: ?>
+    <?php include 'pages/home.php'; ?>
+  <?php endif; ?>
   <!-- /.content-wrapper -->
   <?php include 'inc/footer.php'; ?>
 

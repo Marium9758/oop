@@ -8,6 +8,11 @@ include 'Config.php';
 class User extends Config
 {
 	
+	public function register_user($data)
+	{
+		print_r($data);
+	}
+
 	public function view_all_users()
 	{
 		$connection = $this->connection();
