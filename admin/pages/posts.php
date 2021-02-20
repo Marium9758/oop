@@ -20,12 +20,12 @@
     <?php
         $message= '';
         if (isset($_GET['status']) and $_GET['status']=='delete') {
-            $result = $user->delete_user($_GET['id']);
+            $result = $post->delete_post($_GET['id']);
             if ($result) {
-                $message = 'User deleted';
+                $message = 'Post deleted';
             }
          } 
-        $result = $user->get_all_users();
+        $result = $post->get_all_posts();
         
      ?>
     <!-- Main content -->
@@ -50,7 +50,6 @@
                                   <th style="width: 10px">#</th>
                                   <th>Title</th>
                                   <th>Body</th>
-                                  <th>Status</th>
                                   <th >Action</th>
                                 </tr>
                               </thead>
@@ -61,20 +60,12 @@
                                     while ($row = mysqli_fetch_assoc($result)):?>
                                         <tr>
                                           <td><?= $row['id']; ?></td>
-                                          <td><?= $row['name']; ?></td>
+                                          <td><?= $row['title']; ?></td>
                                           <td>
-                                            <?= $row['email']; ?>
+                                            <?= substr($row['body'],0,100); ?>
                                           </td>
-                                          <td>
-                                            <?php if ($row['status']==1) {
-                                                echo 'Published';
-                                            }
-                                            else
-                                                {
-                                                    echo "Unpublished";
-                                                } ?>
-                                          </td>
-                                          <td><a class="btn btn-warning" href="edit.php?id=<?=$row['id']?>">edit</a> <a class="btn btn-danger" href="?status=delete&id=<?=$row['id']?>">delete</a></td>
+                                          
+                                          <td><a class="btn btn-warning" href="edit_post.php?id=<?=$row['id']?>">edit</a> <a class="btn btn-danger" href="?status=delete&id=<?=$row['id']?>">delete</a></td>
                                         </tr>
                                     <?php  endwhile; ?>
 

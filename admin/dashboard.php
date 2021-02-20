@@ -10,9 +10,11 @@
     if (!isset($_SESSION['email'])) {
       header('Location:index.php');
     }
-
+    include '../classes/Config.php';
     include '../classes/User.php';
+    include '../classes/Post.php';
     $user = new User;
+    $post = new Post;
 
   // Navbar
   include 'inc/header.php';

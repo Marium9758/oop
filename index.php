@@ -1,3 +1,9 @@
+<?php 
+	include 'classes/Config.php';
+	include 'classes/Post.php';
+	$post = new Post;
+ ?>
+
 <?php include('inc/header.php'); ?>
     
     <?php if (isset($pages)) :?>

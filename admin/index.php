@@ -1,5 +1,9 @@
 
-<?php include '../classes/User.php'; ?>
+<?php 
+include '../classes/Config.php';
+include '../classes/User.php'; 
+
+?>
 <?php 
 session_start();
 if (isset($_SESSION['email'])) {
@@ -17,6 +21,7 @@ if (isset($_POST['submit'])) {
     
     $_SESSION['email']=$row['email'];
     $_SESSION['name']=$row['name'];
+    $_SESSION['id']=$row['id'];
     header('Location:dashboard.php');
   }
   else{

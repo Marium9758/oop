@@ -38,16 +38,13 @@
             }
 
             if ($error==0) {
-               $result = $post->save_post($_POST);
+               $result = $post->update_post($_POST);
                if ($result) {
-                   $message = 'Post saved successfully';
-                   $title = '';
-                   $body = '';
+                   $message = 'Post updated successfully';
                }
             }
-
-
         }
+        $row = $post->get_post_details($_GET['id'])
      ?>
     <!-- Main content -->
     <section class="content">
@@ -64,7 +61,7 @@
             <div class="col-md-8">
             <form action="" method="post">
                 <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Full name" name='title' value="<?= $title; ?>">
+                <input type="text" class="form-control" placeholder="Full name" name='title' value="<?= $row['title']; ?>">
                 
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -77,16 +74,17 @@
                 <div class="card-body pad">
                   <div class="mb-3">
                     <textarea name="body" class="textarea" 
-                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" ><?= $body;?></textarea>
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" ><?= $row['body'];?></textarea>
                   </div>
                   <span class="text-danger"><?= $err_body; ?></span>
                 </div>
 
                 <div class="row">
                 <input type="hidden" name="author_id" value="<?= $_SESSION['id'];?>">
+                <input type="hidden" name="id" value="<?= $row['id'];?>">
                 <!-- /.col -->
                 <div class="col-4">
-                    <input type="submit" class="btn btn-primary btn-block" name="submit" value="Publish">
+                    <input type="submit" class="btn btn-primary btn-block" name="submit" value="Update">
                 </div>
                 <!-- /.col -->
                 </div>

@@ -60,8 +60,7 @@
               </li>
               <li class="nav-item"><a href="blog.php" class="nav-link ">Blog</a>
               </li>
-              <li class="nav-item"><a href="post.php" class="nav-link ">Post</a>
-              </li>
+              
               <li class="nav-item"><a href="contact.php" class="nav-link ">Contact</a>
               </li>
             </ul>
