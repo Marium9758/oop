@@ -81,6 +81,18 @@ class User extends Config
 		return $result;
 
 	}
+
+	function search_data($search_item){
+		$link = $this->connection();
+		$sql  = "SELECT * FROM users WHERE (name LIKE '%$search_item%') OR (email LIKE '%$search_item%') AND  status != 0 ORDER BY id DESC";
+		if (mysqli_query($link,$sql)) {
+			$result=mysqli_query($link,$sql);
+			return $result;
+		}
+		else{
+			die('Query not correct'.mysqli_error($link));
+		}
+	}
 	
 }
 

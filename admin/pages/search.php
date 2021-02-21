@@ -25,7 +25,12 @@
                 $message = 'User deleted';
             }
          } 
-        $result = $user->get_all_users();
+
+         if (isset($_GET['s'])) {
+         	
+       		$result = $user->search_data($_GET['s']);
+         }
+
         
      ?>
     <!-- Main content -->
@@ -33,9 +38,6 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-danger">
-                    <?= $message; ?>
-                </div>
                 <form method="get" action="search.php">
                     <input type="text" name="s">
                     <input type="submit" name="submit" value="search">
