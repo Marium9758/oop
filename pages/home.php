@@ -35,11 +35,11 @@
                       </div>
                     </div>
                   </div>
-                  <div class="image col-lg-5"><img src="assets/public/img/featured-pic-1.jpeg" alt="..."></div>
+                  <div class="image col-lg-5"><img src="<?= $row['image']; ?>" alt="..."></div>
                 </div>
               <?php else: ?>
                 <div class="row d-flex align-items-stretch">
-                  <div class="image col-lg-5"><img src="assets/public/img/featured-pic-1.jpeg" alt="..."></div>
+                  <div class="image col-lg-5"><img src="<?= $row['image']; ?>" alt="..."></div>
                   <div class="text col-lg-7">
                     <div class="text-inner d-flex align-items-center">
                       <div class="content">

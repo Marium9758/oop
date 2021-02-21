@@ -38,6 +38,7 @@
             }
 
             if ($error==0) {
+
                $result = $post->save_post($_POST);
                if ($result) {
                    $message = 'Post saved successfully';
@@ -62,7 +63,7 @@
                 
             </div>
             <div class="col-md-8">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Full name" name='title' value="<?= $title; ?>">
                 
@@ -81,7 +82,9 @@
                   </div>
                   <span class="text-danger"><?= $err_body; ?></span>
                 </div>
-
+                <div class="input-group-text">
+                  <input type="file" name="image" class="form-control">
+                </div>
                 <div class="row">
                 <input type="hidden" name="author_id" value="<?= $_SESSION['id'];?>">
                 <!-- /.col -->
